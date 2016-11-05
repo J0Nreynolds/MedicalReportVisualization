@@ -100,10 +100,20 @@ void main(void) {
             <div class="col-md-6" id="canvasHolder">
                 <canvas id="myGLCanvas"></canvas>
             </div>
+
             <div class="col-md-6">
-                <p>
-                    Chief Complaint: {{info["Chief Complaint"]}}
-                </p>
+                <ul class="nav nav-tabs">
+                    <li class="nav active"><a href="#A" data-toggle="tab">Basic Info</a></li>
+                    <li class="nav"><a href="#B" data-toggle="tab">Injury</a></li>
+                    <li class="nav"><a href="#C" data-toggle="tab">Medical History</a></li>
+                    <li class="nav"><a href="#D" data-toggle="tab">Prescription</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="A">Content inside tab A</div>
+                    <div class="tab-pane fade" id="B">Content inside tab B</div>
+                    <div class="tab-pane fade" id="C">Content inside tab C</div>
+                    <div class="tab-pane fade" id="D">Content inside tab D</div>
+                </div>
             </div>
         </div>
     </div>
