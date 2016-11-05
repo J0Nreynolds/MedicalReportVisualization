@@ -115,18 +115,39 @@ void main(void) {
                <div class="tab-content">
                    <div class="tab-pane fade in active" id="A">
                        <h3>Basic Info</h3>
-                       <div class="jumbotron" {margin: 1px}>
+                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
                            <table border="0">
                                <tr>
-                                   <td width="600">Name: {{info["Name"]}}</td>
-                                   <td width="400"> Date of Birth: {{info["Date of Birth"]}}</td>
+                                   <td width="600"><strong>Name:</strong> {{info["Name"]}}</td>
+                                   <td width="400"><strong>Date of Birth:</strong> {{info["Date of Birth"]}}</td>
                                </tr>
                                <tr>
-                                   <td>Age: {{info["Age"]}} </td>
-                                   <td>Sex: {{info["Gender"]}} </td>
+                                   <td><strong>Age:</strong> {{info["Age"]}} </td>
+                                   <td><strong>Sex:</strong> {{info["Gender"]}} </td>
                                </tr>
                                <tr>
-                                   <td>Address: {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}</td>
+                                   <td><strong>Address:</strong> {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}</td>
+                               </tr>
+                           </table>
+                       </div>
+                       <h3>Hospital Info</h3>
+                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
+                           <table border="0">
+                               <tr>
+                                   <td width="600"><strong>Hospital Name:</strong> {{info["Hospital"]}}</td>
+                                   <td width="400"> <strong>Doctor Name:</strong> {{info["Doctor"]}}</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Hospital Address:</strong> {{info["Hospital Address"]}} </td>
+                                   <td><strong>Visit Type:</strong> {{info["Visit Type"]}} </td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Emergency Medical Care Given:</strong> {{info["Emergency Medical Care Given"]}}</td>
+                                   <td><strong>Date of Visit:</strong> {{info["Date of Visit"]}}</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Chief Complaint:</strong> {{info["Chief Complaint"]}}</td>
+                                   <td><strong>Pharmacy:</strong> {{info["Pharmacy"]}}</td>
                                </tr>
                            </table>
                        </div>
@@ -148,7 +169,7 @@ void main(void) {
                    <div class="tab-pane fade" id="D">
                        <h3>Prescription</h3>
                        <h4>Clopidogrel</h4>
-                       <div class="jumbotron" {margin: 1px}>
+                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
 
                            <p class="text-center">2 100 mg tablets of Clopidogrel per day
                                <br> 1 in the morning, 1 at night
