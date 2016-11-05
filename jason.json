@@ -1,0 +1,52 @@
+{
+  "Name": "Jason Wuman",
+  "Street Address": "6725 Taos Court",
+  "City": "Lisle",
+  "State": "Illinois",
+  "Zip Code": "60532",
+  "Phone": "6309231145",
+  "Date of Birth": "09/06/1997",
+  "Age": "19",
+  "Gender": "Male",
+  "Chief Complaint": "Chest pain near heart",
+  "Date of Visit": "10/05/2016",
+  "Time of Visit": "14:00:00",
+  "Length of Visit": "00:45:00",
+  "Visit Type": "Regular Checkup",
+  "Doctor": "Dr. Greggnod Garg",
+  "Patient Medications": "Angina",
+  "Emergency Medical Care Given": false,
+  "Time1": {
+    "Time": "14:10:00",
+    "Blood Pressure": "140/95",
+    "Pulse": 169,
+    "Respiration Rate": 35,
+    "Temperature": 98.1
+  },
+  "Time2": {
+    "Time": "14:20:00",
+    "Blood Pressure": "140/95",
+    "Pulse": 163,
+    "Respiration Rate": 29,
+    "Temperature": 97.9
+  },
+  "Time3": {
+    "Time": "14:30:00",
+    "Blood Pressure": "140/95",
+    "Pulse": 152,
+    "Respiration Rate": 22,
+    "Temperature": 99.1
+  },
+  "Time4": {
+    "Time": "14:40:00",
+    "Blood Pressure": "140/95",
+    "Pulse": 138,
+    "Respiration Rate": 21,
+    "Temperature": 98.3
+  },
+  "Cardiac Arrest": false,
+  "Witnessed Arrest": false,
+  "Trauma Arrest": false,
+  "Bystander CPR": true,
+  "Pulse Restored": null
+}
