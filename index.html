@@ -109,7 +109,13 @@ void main(void) {
                     <li class="nav"><a href="#D" data-toggle="tab">Prescription</a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="A">Content inside tab A</div>
+                    <div class="tab-pane fade in active" id="A">
+                        <h3>Basic Info</h3>
+                        <p>Name: {{info["Name"]}}</p>
+                        <p>Address: {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}}, {{info["Zip Code"]}}</p>
+                        <p>Age: {{info["Age"]}} </p>
+                        <p>Date of Birth: {{info["Date of Birth"]}}</p>
+                    </div>
                     <div class="tab-pane fade" id="B">Content inside tab B</div>
                     <div class="tab-pane fade" id="C">Content inside tab C</div>
                     <div class="tab-pane fade" id="D">Content inside tab D</div>
