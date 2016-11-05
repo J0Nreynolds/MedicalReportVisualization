@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Body</title>
+
+<script id="shader-vs" type="x-shader/x-vertex">
+   attribute vec3 aVertexPosition;
+
+
+   void main(void) {
+       gl_Position = vec4(aVertexPosition, 1.0);
+    }
+</script><script id="shader-fs" type="x-shader/x-fragment">
+precision mediump float;
+
+void main() {
+ gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+}
+</script><script src="./gl-matrix-min.js"></script><script src="./webgl-utils.js"></script><script src="./body.js"></script></head>
+
+
+
+
+
+
+
+
+
+
+<body onload="startup();" cz-shortcut-listen="true">
+<canvas id="myGLCanvas" width="600" height="600"></canvas>
+
+
+</body></html>
