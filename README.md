@@ -1,16 +1,10 @@
 # MedicalReportVisualization
 Creating interactive and understandable patient medical reports through 3D visualizations.
 
-## Setup
-Create an `assets` folder in the root directory of the project, and download each of the files starting with "partof" at this [page](http://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html). Make sure to unzip the `partof_BP3D_4.0_obj_99.zip` file, and organize your assets folder as such:
-
-```
-assets/
-│   partof_BP3D_4.0_obj_99/
-│   partof_element_parts.txt
-|   partof_inclusion_relation_list.txt
-|   partof_parts_list_e.txt
-```
+## Running the report visualizer locally
+Simply start a local webserver in the repository's root directory, and navigate to http://localhost:{PORT}/index.html
 
 ---
-Created using BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan. License can be found [here](http://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html).
+Created using BodyParts3D, © The Database Center for Life Science licensed under CC Attribution-Share Alike 2.1 Japan. License can be found [here](http://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html). 
+
+Modifications have been made to lower the polygon resolution of the resources above, and likewise this project has been distributed under a compatible SA License. See `./decimation/output/` for the modified .obj files.
