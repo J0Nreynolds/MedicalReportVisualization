@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Body</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
+
 <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+<script src="./js/app.js"></script>
 
 <script id="shader-vs" type="x-shader/x-vertex">
    attribute vec3 aVertexNormal;
@@ -73,13 +80,33 @@ void main(void) {
  }
 </script>
 
-<script src="./gl-matrix-min.js"></script><script src="./webgl-utils.js"></script><script src="./body.js"></script><script src="./webgl-obj-loader.js"></script></head>
+<script src="./js/gl-matrix-min.js"></script><script src="./js/webgl-utils.js"></script><script src="./js/body.js"></script><script src="./js/webgl-obj-loader.js"></script></head>
 
 
 
 
-<body onload="startup();" cz-shortcut-listen="true">
-<canvas id="myGLCanvas" width="800" height="800"></canvas>
+<body ng-app="myApp" cz-shortcut-listen="true">
+    <div class="container" ng-controller="myAppController">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Patient Report</h1>
+            </div>
+            <div class="col-sm-6 text-right">
+                <h3>{{info["Name"]}}</h3>
+                <h3>{{info["Date of Visit"]}}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6" id="canvasHolder">
+                <canvas id="myGLCanvas"></canvas>
+            </div>
+            <div class="col-md-6">
+                <p>
+                    Chief Complaint: {{info["Chief Complaint"]}}
+                </p>
+            </div>
+        </div>
+    </div>
 
 
 </body></html>

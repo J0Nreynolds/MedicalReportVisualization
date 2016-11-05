@@ -244,7 +244,7 @@ function startup() {
     gl = createGLContext(canvas);
     setupShaders();
 
-    $.getJSON("files.json", function(json) {
+    $.getJSON("./json/files.json", function(json) {
         function callback(mesh){
             meshes = mesh;
             for(var part in meshes){
