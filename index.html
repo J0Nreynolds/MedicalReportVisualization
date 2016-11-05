@@ -76,7 +76,7 @@
 precision mediump float;
 varying vec4 vColor;
 void main(void) {
-        gl_FragColor = vec4(vColor.x,vColor.y,vColor.z, vColor.w);
+        gl_FragColor = vec4(vColor.x,vColor.y,vColor.z,vColor.w);
  }
 </script>
 
@@ -87,27 +87,128 @@ void main(void) {
 
 <body ng-app="myApp" cz-shortcut-listen="true">
     <div class="container" ng-controller="myAppController">
-        <div class="row">
-            <div class="col-sm-6">
-                <h1>Patient Report</h1>
-            </div>
-            <div class="col-sm-6 text-right">
-                <h3>{{info["Name"]}}</h3>
-                <h3>{{info["Date of Visit"]}}</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6" id="canvasHolder">
-                <canvas id="myGLCanvas"></canvas>
-            </div>
-            <div class="col-md-6">
-                <p>
-                    Chief Complaint: {{info["Chief Complaint"]}}
-                </p>
-            </div>
-        </div>
-        <input type="checkbox" id="highlighted" value="Highlights">Turn on highlights<br>
-    </div>
+       <div class="row">
+           <div class="col-sm-6">
+               <h1>Patient Report</h1>
+           </div>
+           <div class="col-sm-6 text-right">
+               <h3>{{info["Name"]}}</h3>
+               <h3>{{info["Date of Visit"]}}</h3>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-md-6" id="canvasHolder">
+               <canvas id="myGLCanvas"></canvas>
+           </div>
 
+           <div class="col-md-6">
+               <ul class="nav nav-tabs">
+                   <li class="nav active"><a href="#A" data-toggle="tab">Basic Info</a>
+                   </li>
+                   <li class="nav"><a href="#B" data-toggle="tab">Injury</a>
+                   </li>
+                   <li class="nav"><a href="#C" data-toggle="tab">Medical History</a>
+                   </li>
+                   <li class="nav"><a href="#D" data-toggle="tab">Prescription</a>
+                   </li>
+               </ul>
+               <div class="tab-content">
+                   <div class="tab-pane fade in active" id="A">
+                       <h3>Basic Info</h3>
+                       <div class="jumbotron" {margin: 1px}>
+                           <table border="0">
+                               <tr>
+                                   <td width="600">Name: {{info["Name"]}}</td>
+                                   <td width="400"> Date of Birth: {{info["Date of Birth"]}}</td>
+                               </tr>
+                               <tr>
+                                   <td>Age: {{info["Age"]}} </td>
+                                   <td>Sex: {{info["Gender"]}} </td>
+                               </tr>
+                               <tr>
+                                   <td>Address: {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}</td>
+                               </tr>
+                           </table>
+                       </div>
+                   </div>
+                   <div class="tab-pane fade" id="B">Content inside tab B</div>
+                   <div class="tab-pane fade" id="C">
+                       <h3>Graphs of Medical History</h3>
+                       <select>
+                         <option value="1">BMI</option>
+                         <option value="2">Blood Pressure</option>
+                         <option value="3">Blood Sugar</option>
+                         <option value="4">Resting Heart Rate</option>
+                       </select>
+                       <div id="chart1"  style="height: 400px; width: 600px;"></div>
+                       <div id="chart2"  style="height: 400px; width: 600px;"></div>
+                       <div id="chart3"  style="height: 400px; width: 600px;"></div>
+                       <div id="chart4"  style="height: 400px; width: 600px;"></div>
+                   </div>
+                   <div class="tab-pane fade" id="D">
+                       <h3>Prescription</h3>
+                       <h4>Clopidogrel</h4>
+                       <div class="jumbotron" {margin: 1px}>
+
+                           <p class="text-center">2 100 mg tablets of Clopidogrel per day
+                               <br> 1 in the morning, 1 at night
+                               <br> 120 tablets, 0 refills</p class="text-center">
+                           <div class="Hover Rows">
+                               <table class="table table-hover">
+                                   <thead>
+                                       <tr>
+                                           <th></th>
+                                           <th style="text-align: right">Sun</th>
+                                           <th style="text-align: right">Mon</th>
+                                           <th style="text-align: right">Tues</th>
+                                           <th style="text-align: right">Wed</th>
+                                           <th style="text-align: right">Thurs</th>
+                                           <th style="text-align: right">Fri</th>
+                                           <th style="text-align: right">Sat</th>
+                                       </tr>
+                                   </thead>
+
+                                   <tbody>
+                                       <tr>
+                                           <th>Morning</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                       </tr>
+                                       <tr>
+                                           <th>Afternoon</th>
+                                           <th></th>
+                                           <th></th>
+                                           <th></th>
+                                           <th></th>
+                                           <th></th>
+                                           <th></th>
+                                           <th></th>
+                                       </tr>
+                                       <tr>
+                                           <th>Evening</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                           <th>1 tab</th>
+                                       </tr>
+                                   </tbody>
+                               </table>
+                           </div>
+                           <img src="prescription.jpeg" class="img-thumbnail" alt=".mx-auto">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+               <input type="checkbox" id="highlighted" value="Highlights">Turn on highlights<br>
+   </div>
 
 </body></html>
