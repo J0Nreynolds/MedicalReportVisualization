@@ -14,7 +14,11 @@
   "Length of Visit": "00:45:00",
   "Visit Type": "Regular Checkup",
   "Doctor": "Dr. Greggnod Garg",
+  "Hospital": "Edwards Hospital",
+  "Hospital Address": "142 Lemons Drive, Oakbrook IL",
   "Patient Medications": "Angina",
+  "Prescription": "2 100 mg tablets of Clopidogrel per day",
+  "Pharmacy": "Walgreens, Oakbrook",
   "Emergency Medical Care Given": false,
   "Time1": {
     "Time": "14:10:00",
@@ -48,5 +52,9 @@
   "Witnessed Arrest": false,
   "Trauma Arrest": false,
   "Bystander CPR": true,
-  "Pulse Restored": null
+  "Pulse Restored": null,
+  "Affected Regions": {
+  	"aorta": "Thoracic aortic aneurysm was diagnosed following a duplex ultrasound. The thoractic aorta was found to be larger than 7 cm and required immediate surgery.",
+  	"common carotid artery": "Carotid stenosis was also diagnosed with the ultrasound. Risk of stroke is low at 0.3% but antiplatelet therapy (Clopidogrel) is still recommended."
+  }
 }
