@@ -45,6 +45,19 @@ function drawParts(){
         gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute,
                                   meshes[part].normalBuffer.itemSize,
                                   gl.FLOAT, false, 0, 0);
+        if(meshes[part].highlighted && (document.getElementById("highlighted").checked)){
+             gl.bindBuffer(gl.ARRAY_BUFFER, meshes[part].highlightColorBuffer);
+             gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+                                       meshes[part].highlightColorBuffer.itemSize,
+                                       gl.FLOAT, false, 0, 0);
+        }
+        else{
+             gl.bindBuffer(gl.ARRAY_BUFFER, meshes[part].colorBuffer);
+             gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
+                                       meshes[part].colorBuffer.itemSize,
+                                       gl.FLOAT, false, 0, 0);
+
+        }
 
         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, meshes[part].indexBuffer);
         gl.drawElements(gl.TRIANGLES, meshes[part].indexBuffer.numItems, gl.UNSIGNED_SHORT,0);
@@ -180,21 +193,24 @@ function setupShaders() {
   shaderProgram.vertexNormalAttribute = gl.getAttribLocation(shaderProgram, "aVertexNormal");
   gl.enableVertexAttribArray(shaderProgram.vertexNormalAttribute);
 
+  shaderProgram.vertexColorAttribute = gl.getAttribLocation(shaderProgram, "aVertexColor");
+  gl.enableVertexAttribArray(shaderProgram.vertexColorAttribute);
+
   shaderProgram.mvMatrixUniform = gl.getUniformLocation(shaderProgram, "uMVMatrix");
   shaderProgram.pMatrixUniform = gl.getUniformLocation(shaderProgram, "uPMatrix");
   shaderProgram.nMatrixUniform = gl.getUniformLocation(shaderProgram, "uNMatrix");
   shaderProgram.uniformLightPositionLoc = gl.getUniformLocation(shaderProgram, "uLightPosition");
   shaderProgram.uniformAmbientLightColorLoc = gl.getUniformLocation(shaderProgram, "uAmbientLightColor");
-  shaderProgram.uniformDiffuseLightColorLoc = gl.getUniformLocation(shaderProgram, "uDiffuseLightColor");
   shaderProgram.uniformSpecularLightColorLoc = gl.getUniformLocation(shaderProgram, "uSpecularLightColor");
 }
 
 
 //-------------------------------------------------------------------------
-function uploadLightsToShader(loc,a,d,s) {
+function uploadLightsToShader(loc,a,d,h,s) {
   gl.uniform3fv(shaderProgram.uniformLightPositionLoc, loc);
   gl.uniform3fv(shaderProgram.uniformAmbientLightColorLoc, a);
   gl.uniform3fv(shaderProgram.uniformDiffuseLightColorLoc, d);
+  gl.uniform3fv(shaderProgram.uniformHighlightLightColorLoc, h);
   gl.uniform3fv(shaderProgram.uniformSpecularLightColorLoc, s);
 }
 
@@ -222,7 +238,7 @@ function draw() {
 
     mat4.rotateZ(mvMatrix, mvMatrix, degToRad(rot));
     setMatrixUniforms();
-    uploadLightsToShader([0,0,-1],[0.0,0.0,0.0],[0.5,0.5,0.7],[0.5,0.5,0.5]);
+    uploadLightsToShader([0,0,-1],[0.0,0.0,0.0],[0.5,0.5,0.7],[0.5,0.0,0.0],[0.5,0.5,0.5]);
     drawParts();
 
     mvPopMatrix();
@@ -239,16 +255,18 @@ function rotate(){
 }
 
 //----------------------------------------------------------------------------------
-function startup() {
+function startup(tags) {
     canvas = document.getElementById("myGLCanvas");
     gl = createGLContext(canvas);
     setupShaders();
+    const normColor = [0.5, 0.5, 0.7, 0.1];
+    const hiColor = [0.7, 0.0, 0.0, 0.6];
 
     $.getJSON("./json/files.json", function(json) {
         function callback(mesh){
             meshes = mesh;
             for(var part in meshes){
-                OBJ.initMeshBuffers(gl, meshes[part]);
+                OBJ.initMeshBuffers(gl, meshes[part], normColor, hiColor, tags.hasOwnProperty(part));
             }
         }
         OBJ.downloadMeshes(json, callback);

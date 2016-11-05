@@ -370,18 +370,33 @@
    *     gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, model.mesh.indexBuffer);
    *     gl.drawElements(gl.TRIANGLES, model.mesh.indexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
    */
-  OBJ.initMeshBuffers = function( gl, mesh ){
+  OBJ.initMeshBuffers = function( gl, mesh, norm, hi, isHighlighted){
+      function generateColors(len, color){
+          var arr = [];
+          for(var i = 0; i < len/3; i ++){
+              arr.push(color[0]);
+              arr.push(color[1]);
+              arr.push(color[2]);
+              arr.push(color[3]);
+          }
+          return arr;
+      }
     mesh.normalBuffer = _buildBuffer(gl, gl.ARRAY_BUFFER, mesh.vertexNormals, 3);
     mesh.textureBuffer = _buildBuffer(gl, gl.ARRAY_BUFFER, mesh.textures, 2);
     mesh.vertexBuffer = _buildBuffer(gl, gl.ARRAY_BUFFER, mesh.vertices, 3);
     mesh.indexBuffer = _buildBuffer(gl, gl.ELEMENT_ARRAY_BUFFER, mesh.indices, 1);
+    mesh.colorBuffer = _buildBuffer(gl, gl.ARRAY_BUFFER, generateColors(mesh.vertices.length, norm), 4);
+    mesh.highlightColorBuffer = _buildBuffer(gl, gl.ARRAY_BUFFER, generateColors(mesh.vertices.length, hi), 4);
+    mesh.highlighted = isHighlighted;
+    //console.log(generateColors(mesh.vertices.length));
   }
 
   OBJ.deleteMeshBuffers = function( gl, mesh ){
     gl.deleteBuffer(mesh.normalBuffer);
     gl.deleteBuffer(mesh.textureBuffer);
     gl.deleteBuffer(mesh.vertexBuffer);
+    gl.deleteBuffer(mesh.colorBuffer);
+    gl.deleteBuffer(mesh.highlightColorBuffer);
     gl.deleteBuffer(mesh.indexBuffer);
   }
 })(this);
-

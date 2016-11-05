@@ -9,6 +9,15 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
     $.getJSON("./json/jason.json", function(json) {
         $scope.info = json;
         $scope.$apply();
+        var tags = {};
+        $.getJSON("./json/partToID.json", function(partsJSON) {
+            for(var i in json["Affected Regions"]){
+                for(var j in partsJSON[i]){
+                    tags[partsJSON[i][j]] = true;
+                }
+            }
+        });
+        startup(tags);
     });
 
     var canvas = document.querySelector('canvas');
