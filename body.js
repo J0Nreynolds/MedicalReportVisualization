@@ -215,14 +215,14 @@ function draw() {
 
     //Draw Terrain
     mvPushMatrix();
-    vec3.set(transformVec,0.0,-0.25,-3.0);
+    vec3.set(transformVec,0.0,-0.5,-3.0);
     mat4.translate(mvMatrix, mvMatrix,transformVec);
     mat4.rotateX(mvMatrix, mvMatrix, degToRad(-75));
     mat4.rotateZ(mvMatrix, mvMatrix, degToRad(25));
 
     mat4.rotateZ(mvMatrix, mvMatrix, degToRad(rot));
     setMatrixUniforms();
-    uploadLightsToShader([0,0,-1],[0.0,0.0,0.0],[1.0,0.5,0.0],[0.5,0.5,0.5]);
+    uploadLightsToShader([0,0,-1],[0.0,0.0,0.0],[0.5,0.5,0.7],[0.5,0.5,0.5]);
     drawParts();
 
     mvPopMatrix();
