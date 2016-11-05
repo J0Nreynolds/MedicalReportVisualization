@@ -111,10 +111,19 @@ void main(void) {
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="A">
                         <h3>Basic Info</h3>
-                        <p>Name: {{info["Name"]}}</p>
-                        <p>Address: {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}}, {{info["Zip Code"]}}</p>
-                        <p>Age: {{info["Age"]}} </p>
-                        <p>Date of Birth: {{info["Date of Birth"]}}</p>
+                        <table border="0">
+                            <tr>
+                                <td width="700">Name: {{info["Name"]}}</td>
+                                <td width="300">Date of Birth: {{info["Date of Birth"]}}</td>
+                            </tr>
+                            <tr>
+                                <td>Age: {{info["Age"]}} </td>
+                                <td>Sex: {{info["Gender"]}} </td>
+                            </tr>
+                            <tr>
+                                <td>Address: {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}}, {{info["Zip Code"]}}</td>
+                            </tr>
+                        </table>
                     </div>
                     <div class="tab-pane fade" id="B">Content inside tab B</div>
                     <div class="tab-pane fade" id="C">Content inside tab C</div>
