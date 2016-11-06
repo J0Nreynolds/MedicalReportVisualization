@@ -18,7 +18,9 @@
   "Hospital Address": "142 Lemons Drive, Oakbrook IL",
   "Patient Medications": "Angina",
   "Prescription1": "Clopidogrel",
-  "Prescription": "2 100 mg tablets of Clopidogrel per day",
+  "PrescriptionAmount": "2 100 mg tablet of Clopidogrel per day",
+  "PrescriptionTime": "1 in the morning 1 at night",
+  "PrescriptionRefill": "180 tablets, 0 refill",
   "PrescriptionSchedule": {
     "SunM": 1,
     "SunA": 0,
