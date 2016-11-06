@@ -279,7 +279,7 @@ function animate() {
 }
 var rot = 0;
 function rotate(){
-    rot = (rot+1)%360
+    rot = (rot+(document.getElementById("rotSpeed").value/500))%360
 }
 
 //----------------------------------------------------------------------------------
