@@ -19,7 +19,7 @@
   "Patient Medications": "Angina",
   "Prescription": "2 100 mg tablets of Clopidogrel per day",
   "PrescriptionSchedule": {
-    "SunM": 1,
+    "SunM": "1",
     "SunA": 0,
     "SunE": 1,
     "MM": 1,
