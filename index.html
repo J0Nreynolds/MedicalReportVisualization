@@ -86,7 +86,7 @@ void main(void) {
 
 
 <body ng-app="myApp" cz-shortcut-listen="true">
-    <div class="container" ng-controller="myAppController">
+    <div class="container-fluid" ng-controller="myAppController">
        <div class="row">
            <div class="col-sm-6">
                <h1>Patient Report</h1>
@@ -116,53 +116,136 @@ void main(void) {
                    <div class="tab-pane fade in active" id="A">
                        <h3>Basic Info</h3>
                        <div class="alert alert-info" role="alert">
-                           <table border="0">
-                               <tr>
-                                   <td width="600"><strong>Name:</strong> {{info["Name"]}}</td>
-                                   <td width="400"><strong>Date of Birth:</strong> {{info["Date of Birth"]}}</td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Age:</strong> {{info["Age"]}} </td>
-                                   <td><strong>Sex:</strong> {{info["Gender"]}} </td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Address:</strong> {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}</td>
-                               </tr>
-                           </table>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Name:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Name"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   DOB:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Date of Birth"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Age:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Age"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Sex:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Gender"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Address:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}
+                               </div>
+
+                               <div class="col-sm-6">
+                               </div>
+                           </div>
                        </div>
                        <h3>Hospital Info</h3>
                        <div class="alert alert-info" role="alert">
-                           <table border="0">
-                               <tr>
-                                   <td width="1000"><strong>Hospital Name:</strong> {{info["Hospital"]}}</td>
-                                   <td width="600"> <strong>Doctor Name:</strong> {{info["Doctor"]}}</td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Hospital Address:</strong> {{info["Hospital Address"]}} </td>
-                                   <td><strong>Visit Type:</strong> {{info["Visit Type"]}} </td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Emergency Medical Care Given:</strong> {{info["Emergency Medical Care Given"]}}</td>
-                                   <td><strong>Date of Visit:</strong> {{info["Date of Visit"]}}</td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Chief Complaint:</strong> {{info["Chief Complaint"]}}</td>
-                                   <td><strong>Pharmacy:</strong> {{info["Pharmacy"]}}</td>
-                               </tr>
-                           </table>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Hospital Name:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Hospital"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Doctor Name:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Doctor"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Hospital Address:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Hospital Address"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Visit Type:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Visit Type"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Emergency Medical Care Given:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Emergency Medical Care Given"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Date of Visit:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Date of Visit"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Chief Complaint:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Chief Complaint"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Pharmacy:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["Pharmacy"]}}
+                               </div>
+                           </div>
                        </div>
                        <h3>Vital Info</h3>
                        <div class="alert alert-info" role="alert">
-                           <table border="0">
-                               <tr>
-                                   <td width="1000"><strong>BMI:</strong> {{info["MedicalHistory"]["Visit1"]["BMI"]}}</td>
-                                   <td width="1000"> <strong>Blood Pressure:</strong> {{info["MedicalHistory"]["Visit1"]["BloodPressure"]}}</td>
-                               </tr>
-                               <tr>
-                                   <td><strong>Blood Sugar:</strong> {{info["MedicalHistory"]["Visit1"]["BloodSugar"]}} </td>
-                                   <td><strong>Heart Rate:</strong> {{info["MedicalHistory"]["Visit1"]["HeartRate"]}} </td>
-                               </tr>
-                           </table>
+
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   BMI:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["MedicalHistory"]["Visit1"]["BMI"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Blood Pressure:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["MedicalHistory"]["Visit1"]["BloodPressure"]}}
+                               </div>
+                           </div>
+                           <div class="row">
+                               <div class="col-sm-3">
+                                   Blood Sugar:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["MedicalHistory"]["Visit1"]["BloodSugar"]}}
+                               </div>
+                               <div class="col-sm-3">
+                                   Heart Rate:
+                               </div>
+                               <div class="col-sm-3">
+                                   {{info["MedicalHistory"]["Visit1"]["HeartRate"]}}
+                               </div>
+                           </div>
                        </div>
                    </div>
                    <div class="tab-pane fade" id="B">
@@ -201,6 +284,12 @@ void main(void) {
                              <label>
                                <input type="radio" name="optionsRadios" id="head" value="head" >
                                Head
+                             </label>
+                           </div>
+                           <div class="inline">
+                             <label>
+                               <input id="rotSpeed" type="range" min="0" max="1000" step="50" />
+                               Rotation speed
                              </label>
                            </div>
                        </div>
