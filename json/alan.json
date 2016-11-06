@@ -17,6 +17,7 @@
   "Hospital": "Good Samaritan Hospital",
   "Hospital Address": "1500 Highland Avenue, Downers Grove, IL",
   "Patient Medications": "None",
+  "Prescription1": "Afinator",
   "Prescription": "1 10 mg tablet of Afinator per day\n1 every 24 hours\n20 tablets, 1 refill",
   "PrescriptionSchedule": {
     "SunM": 0,
@@ -42,7 +43,7 @@
     "SatE": 1
   },
   "Pharmacy": "MyKinley Center, Champaign",
-  "Emergency Medical Care Given": false,
+  "Emergency Medical Care Given": "False",
   "MedicalHistory": {
     "AverageBMI": 25.4,
     "AverageBloodPressure": 115,
@@ -120,5 +121,6 @@
   "Affected Regions": {
     "brain": "Weak blood vessels, mainly in left region of the brain near the cerebellum, leading to expansion of regions in blood vessels, leading to risk of rupturing and internal bleeding.",
     "cerebellum": "This region has the highest risk of rupturing blood vessels for this specific case"
-  }
+  },
+  "Picture": "prescription1.jpeg"  
 }

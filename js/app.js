@@ -22,7 +22,7 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
         updateActives($scope.active);
     };
 
-    $.getJSON("./json/jason.json", function(json) {
+    $.getJSON("./json/alan.json", function(json) {
         $scope.info = json;
         $scope.$apply();
         var tags = {};

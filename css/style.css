@@ -18,3 +18,8 @@ body{
     display: inline-block!important;
     padding: 10px;
 }
+
+hr {
+	margin-top: 5px!important;
+	margin-bottom: 5px!important;
+}
