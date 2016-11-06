@@ -115,7 +115,7 @@ void main(void) {
                <div class="tab-content">
                    <div class="tab-pane fade in active" id="A">
                        <h3>Basic Info</h3>
-                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
+                       <div class="alert alert-info" role="alert">
                            <table border="0">
                                <tr>
                                    <td width="600"><strong>Name:</strong> {{info["Name"]}}</td>
@@ -131,11 +131,11 @@ void main(void) {
                            </table>
                        </div>
                        <h3>Hospital Info</h3>
-                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
+                       <div class="alert alert-info" role="alert">
                            <table border="0">
                                <tr>
-                                   <td width="600"><strong>Hospital Name:</strong> {{info["Hospital"]}}</td>
-                                   <td width="400"> <strong>Doctor Name:</strong> {{info["Doctor"]}}</td>
+                                   <td width="1000"><strong>Hospital Name:</strong> {{info["Hospital"]}}</td>
+                                   <td width="600"> <strong>Doctor Name:</strong> {{info["Doctor"]}}</td>
                                </tr>
                                <tr>
                                    <td><strong>Hospital Address:</strong> {{info["Hospital Address"]}} </td>
@@ -151,25 +151,41 @@ void main(void) {
                                </tr>
                            </table>
                        </div>
+                       <h3>Vital Info</h3>
+                       <div class="alert alert-info" role="alert">
+                           <table border="0">
+                               <tr>
+                                   <td width="1000"><strong>BMI:</strong> {{info["MedicalHistory"]["Visit1"]["BMI"]}}</td>
+                                   <td width="1000"> <strong>Blood Pressure:</strong> {{info["MedicalHistory"]["Visit1"]["BloodPressure"]}}</td>
+                               </tr>
+                               <tr>
+                                   <td><strong>Blood Sugar:</strong> {{info["MedicalHistory"]["Visit1"]["BloodSugar"]}} </td>
+                                   <td><strong>Heart Rate:</strong> {{info["MedicalHistory"]["Visit1"]["HeartRate"]}} </td>
+                               </tr>
+                           </table>
+                       </div>
                    </div>
                    <div class="tab-pane fade" id="B">Content inside tab B</div>
                    <div class="tab-pane fade" id="C">
                        <h3>Graphs of Medical History</h3>
-                       <select>
-                         <option value="1">BMI</option>
-                         <option value="2">Blood Pressure</option>
-                         <option value="3">Blood Sugar</option>
-                         <option value="4">Resting Heart Rate</option>
-                       </select>
-                       <div id="chart1"  style="height: 400px; width: 600px;"></div>
-                       <div id="chart2"  style="height: 400px; width: 600px;"></div>
-                       <div id="chart3"  style="height: 400px; width: 600px;"></div>
-                       <div id="chart4"  style="height: 400px; width: 600px;"></div>
+                          <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              Dropdown
+                              <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                              <li><a href="#">Action</a></li>
+                              <li><a href="#">Another action</a></li>
+                              <li><a href="#">Something else here</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">Separated link</a></li>
+                            </ul>
+                          </div>
                    </div>
                    <div class="tab-pane fade" id="D">
                        <h3>Prescription</h3>
                        <h4>Clopidogrel</h4>
-                       <div class="jumbotron" {margin: 1px}, style="background-color:#5bc0de">
+                       <div class="alert alert-info" role="alert">
 
                            <p class="text-center">2 100 mg tablets of Clopidogrel per day
                                <br> 1 in the morning, 1 at night
@@ -179,46 +195,46 @@ void main(void) {
                                    <thead>
                                        <tr>
                                            <th></th>
-                                           <th style="text-align: right">Sun</th>
-                                           <th style="text-align: right">Mon</th>
-                                           <th style="text-align: right">Tues</th>
-                                           <th style="text-align: right">Wed</th>
-                                           <th style="text-align: right">Thurs</th>
-                                           <th style="text-align: right">Fri</th>
-                                           <th style="text-align: right">Sat</th>
+                                           <th style="text-align: center">Sun</th>
+                                           <th style="text-align: center">Mon</th>
+                                           <th style="text-align: center">Tues</th>
+                                           <th style="text-align: center">Wed</th>
+                                           <th style="text-align: center">Thurs</th>
+                                           <th style="text-align: center">Fri</th>
+                                           <th style="text-align: center">Sat</th>
                                        </tr>
                                    </thead>
 
                                    <tbody>
                                        <tr>
                                            <th>Morning</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SunM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["MM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["TuesM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["WM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["ThursM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["FM"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SatM"]}}</td>
                                        </tr>
                                        <tr>
                                            <th>Afternoon</th>
-                                           <th></th>
-                                           <th></th>
-                                           <th></th>
-                                           <th></th>
-                                           <th></th>
-                                           <th></th>
-                                           <th></th>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SunA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["MA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["TuesA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["WA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["ThursA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["FA"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SatA"]}}</td>
                                        </tr>
                                        <tr>
                                            <th>Evening</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
-                                           <th>1 tab</th>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SunE"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["ME"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["TuesE"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["WE"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["ThursE"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["FE"]}}</td>
+                                           <td align="center">{{info["PrescriptionSchedule"]["SatE"]}}</td>
                                        </tr>
                                    </tbody>
                                </table>
