@@ -7,7 +7,117 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
     $scope.info = {};
     $scope.partsToId = {};
     $scope.idsToParts = {};
-    $scope.active = {}
+    $scope.active = {};
+    $scope.graphType = "";
+    $scope.lineChart = undefined;
+    $scope.generateGraph = function(){
+        var type = $scope.graphType.replace(/\s/g, '');
+        var chart = document.getElementById("chart");
+        if($scope.lineChart){
+            $scope.lineChart.destroy();
+            $scope.lineChart = undefined;
+        }
+        else {
+            $scope.lineChart = new Chart(chart, {
+                type: 'line',
+                data: {
+                    datasets: [{
+                        label: 'Scatter Dataset',
+                        data: [{
+                            x: -10,
+                            y: 0
+                        }, {
+                            x: 0,
+                            y: 10
+                        }, {
+                            x: 10,
+                            y: 5
+                        }]
+                    }]
+                },
+                options: {
+                            scales: {
+                                xAxes: [{
+                                    type: 'linear',
+                                    position: 'bottom'
+                                }]
+                            }
+                        }
+            });
+            $scope.generateGraph();
+        }
+
+        var data = {
+            xLabels: ["Visit 1", "Visit 2", "Visit 3", "Visit 4", "Visit 5"],
+            datasets: [
+                    {
+                        label:  $scope.graphType,
+                        fill: false,
+                        lineTension: 0.1,
+                        backgroundColor: "rgba(75,192,192,0.4)",
+                        borderColor: "rgba(75,192,192,1)",
+                        borderCapStyle: 'butt',
+                        borderDash: [],
+                        borderDashOffset: 0.0,
+                        borderJoinStyle: 'miter',
+                        pointBorderColor: "rgba(75,192,192,1)",
+                        pointBackgroundColor: "#fff",
+                        pointBorderWidth: 1,
+                        pointHoverRadius: 5,
+                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                        pointHoverBorderWidth: 2,
+                        pointRadius: 1,
+                        pointHitRadius: 10,
+                        data: [
+                                {
+                                    x:$scope.info["MedicalHistory"]["Visit1"]["DaysSinceLastVisit"],
+                                    y:$scope.info["MedicalHistory"]["Visit1"][type]
+                                },
+                                {
+                                    x:$scope.info["MedicalHistory"]["Visit2"]["DaysSinceLastVisit"],
+                                    y:$scope.info["MedicalHistory"]["Visit2"][type]
+                                },
+                                {
+                                    x:$scope.info["MedicalHistory"]["Visit3"]["DaysSinceLastVisit"],
+                                    y:$scope.info["MedicalHistory"]["Visit3"][type]
+                                },
+                                {
+                                    x:$scope.info["MedicalHistory"]["Visit4"]["DaysSinceLastVisit"],
+                                    y:$scope.info["MedicalHistory"]["Visit4"][type]
+                                },
+                                {
+                                    x:$scope.info["MedicalHistory"]["Visit5"]["DaysSinceLastVisit"],
+                                    y:$scope.info["MedicalHistory"]["Visit5"][type]
+                                }
+                              ],
+                        spanGaps: false,
+                    }
+                ]
+        };
+        $scope.lineChart = new Chart(chart, {
+            type: 'line',
+            data: data,
+            options: {
+                        scales: {
+                            xAxes: [{
+                                scaleLabel: {
+                                  display: true,
+                                  labelString: 'Days'
+                                },
+                                type: 'linear',
+                                position: 'bottom'
+                            }],
+                            yAxes: [{
+                                scaleLabel: {
+                                  display: true,
+                                  labelString: 'Level'
+                                }
+                            }]
+                        }
+                    }
+        });
+    }
 
     $scope.change = function(key){
         console.log(key);
@@ -22,7 +132,8 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
         updateActives($scope.active);
     };
 
-    $.getJSON("./json/alan.json", function(json) {
+
+    $.getJSON("./json/jason.json", function(json) {
         $scope.info = json;
         $scope.$apply();
         var tags = {};
@@ -43,8 +154,11 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
         });
     });
 
-    var canvas = document.querySelector('canvas');
+    var canvas = document.getElementById("myGLCanvas");
     fitToContainer(canvas);
+
+    var chart = document.getElementById("chart");
+    fitToContainer(chart);
 
     function fitToContainer(canvas){
       // Make it visually fill the positioned parent
@@ -54,4 +168,5 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
       canvas.width  = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
     }
+
 });

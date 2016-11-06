@@ -6,6 +6,11 @@ body{
     height: 85vh;
 }
 
+#chartHolder {
+    height: 63vh;
+    width: 100%;
+}
+
 .jumbotron {
     background-color: ##5bc0de;
     color: black;

@@ -287,6 +287,7 @@ function startup(tags) {
     canvas = document.getElementById("myGLCanvas");
     gl = createGLContext(canvas);
     setupShaders();
+
     const normColor = [0.5, 0.5, 0.7, 0.1];
     const hiColor = [0.7, 0.0, 0.0, 1];
 

@@ -12,7 +12,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
 <script src="./js/app.js"></script>
 
 <script id="shader-vs" type="x-shader/x-vertex">
@@ -324,18 +324,19 @@ void main(void) {
                     </div>
                    <div class="tab-pane fade" id="C">
                        <h3>Graphs of Medical History</h3>
-                          <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                              Select a Graph
-                              <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                              <li><a href="#">BMI</a></li>
-                              <li><a href="#">Blood Pressure</a></li>
-                              <li><a href="#">Blood Sugar</a></li>
-                              <li><a href="#">Heart Rate</a></li>                              
-                            </ul>
-                          </div>
+
+                       <select ng-model="graphType" class="form-control" ng-change="generateGraph()">
+                            <option>BMI</option>
+                            <option>Blood Pressure</option>
+                            <option>Blood Sugar</option>
+                            <option>Heart Rate</option>
+                        </select>
+                        <div ng-if="graphType">
+                              <h4>{{graphType}} Graph</h4>
+                        </div>
+                        <div id="chartHolder">
+                            <canvas id="chart"></canvas>
+                        </div>
                    </div>
                    <div class="tab-pane fade" id="D">
                        <h3>Prescription</h3>
