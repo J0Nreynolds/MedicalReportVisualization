@@ -13,3 +13,8 @@ body{
 .nav-tabs {
     margin-bottom: 0;
 }
+
+.inline {
+    display: inline-block!important;
+    padding: 10px;
+}
