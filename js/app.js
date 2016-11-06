@@ -9,44 +9,14 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
     $scope.idsToParts = {};
     $scope.active = {};
     $scope.graphType = "";
-    $scope.lineChart = undefined;
+    window.lineChart = undefined;
     $scope.generateGraph = function(){
         var type = $scope.graphType.replace(/\s/g, '');
-        var chart = document.getElementById("chart");
-        if($scope.lineChart){
-            $scope.lineChart.destroy();
-            $scope.lineChart = undefined;
-        }
-        else {
-            $scope.lineChart = new Chart(chart, {
-                type: 'line',
-                data: {
-                    datasets: [{
-                        label: 'Scatter Dataset',
-                        data: [{
-                            x: -10,
-                            y: 0
-                        }, {
-                            x: 0,
-                            y: 10
-                        }, {
-                            x: 10,
-                            y: 5
-                        }]
-                    }]
-                },
-                options: {
-                            scales: {
-                                xAxes: [{
-                                    type: 'linear',
-                                    position: 'bottom'
-                                }]
-                            }
-                        }
-            });
-            $scope.generateGraph();
-        }
 
+        $('#chart').remove(); // this is my <canvas> element
+        $('#chartHolder').append('<canvas id="chart"><canvas>');
+        var chart = document.getElementById("chart");
+        fitToContainer(chart);
         var data = {
             xLabels: ["Visit 1", "Visit 2", "Visit 3", "Visit 4", "Visit 5"],
             datasets: [
@@ -95,7 +65,7 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
                     }
                 ]
         };
-        $scope.lineChart = new Chart(chart, {
+        window.lineChart = new Chart(chart.getContext('2d'), {
             type: 'line',
             data: data,
             options: {
@@ -120,7 +90,6 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
     }
 
     $scope.change = function(key){
-        console.log(key);
         if($scope.active[$scope.partsToId[key][0]]){
             for(var i =0; i < $scope.partsToId[key].length; i ++)
                 delete $scope.active[$scope.partsToId[key][i]];
@@ -132,8 +101,7 @@ angular.module('myApp', []).controller('myAppController', function($scope) {
         updateActives($scope.active);
     };
 
-
-    $.getJSON("./json/jason.json", function(json) {
+    $.getJSON("./json/alan.json", function(json) {
         $scope.info = json;
         $scope.$apply();
         var tags = {};

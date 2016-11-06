@@ -18,7 +18,9 @@
   "Hospital Address": "1500 Highland Avenue, Downers Grove, IL",
   "Patient Medications": "None",
   "Prescription1": "Afinator",
-  "Prescription": "1 10 mg tablet of Afinator per day\n1 every 24 hours\n20 tablets, 1 refill",
+  "PrescriptionAmount": "1 10 mg tablet of Afinator per day",
+  "PrescriptionTime": "1 every 24 hours",
+  "PrescriptionRefill": "20 tablets, 1 refill",
   "PrescriptionSchedule": {
     "SunM": 0,
     "SunA": 0,

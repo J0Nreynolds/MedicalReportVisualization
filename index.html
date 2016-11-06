@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Body</title>
@@ -12,7 +13,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0-rc.1/Chart.min.js"></script>
 <script src="./js/app.js"></script>
 
 <script id="shader-vs" type="x-shader/x-vertex">
@@ -92,8 +93,7 @@ void main(void) {
                <h1>Patient Report</h1>
            </div>
            <div class="col-sm-6 text-right">
-               <h3>{{info["Name"]}}</h3>
-               <h3>{{info["Date of Visit"]}}</h3>
+               <h1>{{info["Name"]}}</h1>
            </div>
        </div>
        <div class="row">
@@ -118,13 +118,13 @@ void main(void) {
                        <div class="alert alert-info" role="alert">
                            <div class="row">
                                <div class="col-sm-3">
-                                   Name:
+                                   <strong>Name:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Name"]}}
                                </div>
                                <div class="col-sm-3">
-                                   DOB:
+                                   <strong>DOB:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Date of Birth"]}}
@@ -133,13 +133,13 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Age:
+                                  <strong>Age:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Age"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Sex:
+                                   <strong>Sex:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Gender"]}}
@@ -148,7 +148,7 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Address:
+                                   <strong>Address:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Street Address"]}}, {{info["City"]}}, {{info["State"]}} {{info["Zip Code"]}}
@@ -162,13 +162,13 @@ void main(void) {
                        <div class="alert alert-info" role="alert">
                            <div class="row">
                                <div class="col-sm-3">
-                                   Hospital Name:
+                                   <strong>Hospital Name:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Hospital"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Doctor Name:
+                                   <strong>Doctor Name:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Doctor"]}}
@@ -177,13 +177,13 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Hospital Address:
+                                   <strong>Hospital Address:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Hospital Address"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Visit Type:
+                                   <strong>Visit Type:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Visit Type"]}}
@@ -192,13 +192,13 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Emergency Medical Care Given:
+                                   <strong>Emergency Medical Care Given:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Emergency Medical Care Given"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Date of Visit:
+                                   <strong>Date of Visit:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Date of Visit"]}}
@@ -207,13 +207,13 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Chief Complaint:
+                                   <strong>Chief Complaint:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Chief Complaint"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Pharmacy:
+                                   <strong>Pharmacy:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["Pharmacy"]}}
@@ -225,13 +225,13 @@ void main(void) {
 
                            <div class="row">
                                <div class="col-sm-3">
-                                   BMI:
+                                   <strong>BMI:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["MedicalHistory"]["Visit1"]["BMI"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Blood Pressure:
+                                   <strong>Blood Pressure:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["MedicalHistory"]["Visit1"]["BloodPressure"]}}
@@ -240,13 +240,13 @@ void main(void) {
                            <hr>
                            <div class="row">
                                <div class="col-sm-3">
-                                   Blood Sugar:
+                                   <strong>Blood Sugar:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["MedicalHistory"]["Visit1"]["BloodSugar"]}}
                                </div>
                                <div class="col-sm-3">
-                                   Heart Rate:
+                                   <strong>Heart Rate:</strong>
                                </div>
                                <div class="col-sm-3">
                                    {{info["MedicalHistory"]["Visit1"]["HeartRate"]}}
@@ -343,7 +343,7 @@ void main(void) {
                        <h4>{{info["Prescription1"]}}</h4>
                        <div class="alert alert-info" role="alert">
 
-                           <p class="text-center">{{info["Prescription"]}}
+                           <p class="text-center">{{info["PrescriptionAmount"]}} <br> {{info["PrescriptionTime"]}} <br> {{info["PrescriptionRefill"]}}
                                </p class="text-center">
                            <div class="Hover Rows">
                                <table class="table table-hover">
@@ -394,7 +394,7 @@ void main(void) {
                                    </tbody>
                                </table>
                            </div>
-                           <img src={{info["Picture"]}} class="img-thumbnail" alt=".mx-auto">
+                           <img src={{info["Picture"]}} class="center-block img-responsive"/>
                        </div>
                    </div>
                </div>
