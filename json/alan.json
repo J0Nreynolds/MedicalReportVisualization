@@ -1,0 +1,124 @@
+{
+  "Name": "Alan Xu",
+  "Street Address": "606 E Stoughton Street",
+  "City": "Champaign",
+  "State": "Illinois",
+  "Zip Code": "61820",
+  "Phone": "6303600063",
+  "Date of Birth": "04/26/1955",
+  "Age": "61",
+  "Gender": "Male",
+  "Chief Complaint": "Nausea, dizziness, loss of balance",
+  "Date of Visit": "11/01/2016",
+  "Time of Visit": "10:12:23",
+  "Length of Visit": "01:14:27",
+  "Visit Type": "Recent Appointment",
+  "Doctor": "Dr. Greggnod Garg",
+  "Hospital": "Good Samaritan Hospital",
+  "Hospital Address": "1500 Highland Avenue, Downers Grove, IL",
+  "Patient Medications": "None",
+  "Prescription": "1 10 mg tablet of Afinator per day\n1 every 24 hours\n20 tablets, 1 refill",
+  "PrescriptionSchedule": {
+    "SunM": 0,
+    "SunA": 0,
+    "SunE": 1,
+    "MM": 0,
+    "MA": 0,
+    "ME": 1,
+    "TuesM": 0,
+    "TuesA": 0,
+    "TuesE": 1,
+    "WM": 0,
+    "WA": 0,
+    "WE": 1,
+    "ThursM": 0,
+    "ThursA": 0,
+    "ThursE": 1,
+    "FM": 0,
+    "FA": 0,
+    "FE": 1,
+    "SatM": 0,
+    "SatA": 0,
+    "SatE": 1
+  },
+  "Pharmacy": "MyKinley Center, Champaign",
+  "Emergency Medical Care Given": false,
+  "MedicalHistory": {
+    "AverageBMI": 25.4,
+    "AverageBloodPressure": 115,
+    "AverageBloodSugar": 86.7,
+    "AverageHeartRate": 85,
+    "Visit1": {
+      "DaysSinceLastVisit": 0,
+      "BMI": 27.4,
+      "BloodPressure": 123,
+      "BloodSugar": 97.8,
+      "HeartRate": 93
+    },
+    "Visit2": {
+      "DaysSinceLastVisit": 14,
+      "BMI": 26.2,
+      "BloodPressure": 122,
+      "BloodSugar": 97.8,
+      "HeartRate": 92
+    },
+    "Visit3": {
+      "DaysSinceLastVisit": 30,
+      "BMI": 25.5,
+      "BloodPressure": 119,
+      "BloodSugar": 95.1,
+      "HeartRate": 89
+    },
+    "Visit4": {
+      "DaysSinceLastVisit": 45,
+      "BMI": 24.1,
+      "BloodPressure": 117,
+      "BloodSugar": 91,
+      "HeartRate": 87
+    },
+    "Visit5": {
+      "DaysSinceLastVisit": 58,
+      "BMI": 23.8,
+      "BloodPressure": 116,
+      "BloodSugar": 90.3,
+      "HeartRate": 86
+    }
+  },
+  "Time1": {
+    "Time": "10:15:00",
+    "Blood Pressure": "130/95",
+    "Pulse": 100,
+    "Respiration Rate": 36,
+    "Temperature": 98.1
+  },
+  "Time2": {
+    "Time": "10:30:00",
+    "Blood Pressure": "134/91",
+    "Pulse": 95,
+    "Respiration Rate": 29,
+    "Temperature": 97.9
+  },
+  "Time3": {
+    "Time": "10:44:00",
+    "Blood Pressure": "129/94",
+    "Pulse": 97,
+    "Respiration Rate": 33,
+    "Temperature": 99.1
+  },
+  "Time4": {
+    "Time": "11:01:00",
+    "Blood Pressure": "131/95",
+    "Pulse": 93,
+    "Respiration Rate": 39,
+    "Temperature": 98.3
+  },
+  "Cardiac Arrest": false,
+  "Witnessed Arrest": false,
+  "Trauma Arrest": false,
+  "Bystander CPR": true,
+  "Pulse Restored": null,
+  "Affected Regions": {
+    "brain": "Weak blood vessels, mainly in left region of the brain near the cerebellum, leading to expansion of regions in blood vessels, leading to risk of rupturing and internal bleeding.",
+    "cerebellum": "This region has the highest risk of rupturing blood vessels for this specific case"
+  }
+}
