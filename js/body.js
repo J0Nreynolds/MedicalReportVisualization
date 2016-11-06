@@ -17,7 +17,12 @@ var tIndexTriBuffer;
 var tIndexEdgeBuffer;
 
 // View parameters
-var eyePt = vec3.fromValues(0.0,3.0,10.0);
+var wholeView = vec3.fromValues(0.0,3.0,9.0);
+var upperBodyView = vec3.fromValues(0.0,5.2,3.0);
+var torsoView = vec3.fromValues(0.0,4.5,2.0);
+var lowerBodyView = vec3.fromValues(0.0,1.8,3.2);
+var legView = vec3.fromValues(0.0,0.5,2.0);
+var headView = vec3.fromValues(0.0,6.4,0.2);
 var viewDir = vec3.fromValues(0.0,0.0,-1.0);
 var up = vec3.fromValues(0.0,1.0,0.0);
 var viewPt = vec3.fromValues(0.0,0.0,0.0);
@@ -34,6 +39,8 @@ var pMatrix = mat4.create();
 var mvMatrixStack = [];
 var meshes = {};
 
+var activeTags = {};
+
 //-------------------------------------------------------------------------
 function drawParts(){
     for (var part in meshes) {
@@ -45,17 +52,18 @@ function drawParts(){
         gl.vertexAttribPointer(shaderProgram.vertexNormalAttribute,
                                   meshes[part].normalBuffer.itemSize,
                                   gl.FLOAT, false, 0, 0);
-        if(meshes[part].highlighted && (document.getElementById("highlighted").checked)){
+        if(meshes[part].highlighted && (document.getElementById("allOptions").checked || activeTags[part])){
              gl.bindBuffer(gl.ARRAY_BUFFER, meshes[part].highlightColorBuffer);
              gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
                                        meshes[part].highlightColorBuffer.itemSize,
                                        gl.FLOAT, false, 0, 0);
         }
-        else{
+        else {
              gl.bindBuffer(gl.ARRAY_BUFFER, meshes[part].colorBuffer);
              gl.vertexAttribPointer(shaderProgram.vertexColorAttribute,
                                        meshes[part].colorBuffer.itemSize,
                                        gl.FLOAT, false, 0, 0);
+
 
         }
 
@@ -217,6 +225,26 @@ function uploadLightsToShader(loc,a,d,h,s) {
 //----------------------------------------------------------------------------------
 function draw() {
     var transformVec = vec3.create();
+    var eye = vec3.create;
+
+    if(document.getElementById("whole").checked){
+        eye = vec3.clone(wholeView);
+    }
+    else if (document.getElementById("upper").checked) {
+        eye = vec3.clone(upperBodyView);
+    }
+    else if (document.getElementById("lower").checked) {
+        eye = vec3.clone(lowerBodyView);
+    }
+    else if (document.getElementById("torso").checked) {
+        eye = vec3.clone(torsoView);
+    }
+    else if (document.getElementById("legs").checked) {
+        eye = vec3.clone(legView);
+    }
+    else {
+        eye = vec3.clone(headView);
+    }
 
     gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -225,16 +253,16 @@ function draw() {
     mat4.perspective(pMatrix,degToRad(45), gl.viewportWidth / gl.viewportHeight, 0.1, 200.0);
 
     // We want to look down -z, so create a lookat point in that direction
-    vec3.add(viewPt, eyePt, viewDir);
+    vec3.add(viewPt, eye, viewDir);
     // Then generate the lookat matrix and initialize the MV matrix to that view
-    mat4.lookAt(mvMatrix,eyePt,viewPt,up);
+    mat4.lookAt(mvMatrix,eye,viewPt,up);
 
     //Draw Terrain
     mvPushMatrix();
     vec3.set(transformVec,0.0,-0.5,-3.0);
     mat4.translate(mvMatrix, mvMatrix,transformVec);
-    mat4.rotateX(mvMatrix, mvMatrix, degToRad(-75));
-    mat4.rotateZ(mvMatrix, mvMatrix, degToRad(25));
+    mat4.rotateX(mvMatrix, mvMatrix, degToRad(-90));
+    //mat4.rotateZ(mvMatrix, mvMatrix, degToRad(25));
 
     mat4.rotateZ(mvMatrix, mvMatrix, degToRad(rot));
     setMatrixUniforms();
@@ -260,7 +288,7 @@ function startup(tags) {
     gl = createGLContext(canvas);
     setupShaders();
     const normColor = [0.5, 0.5, 0.7, 0.1];
-    const hiColor = [0.7, 0.0, 0.0, 0.6];
+    const hiColor = [0.7, 0.0, 0.0, 1];
 
     $.getJSON("./json/files.json", function(json) {
         function callback(mesh){
@@ -285,4 +313,8 @@ function tick() {
     requestAnimFrame(tick);
     draw();
     animate();
+}
+
+function updateActives(actives){
+    activeTags = actives;
 }

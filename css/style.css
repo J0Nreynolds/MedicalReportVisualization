@@ -5,3 +5,11 @@ body{
 #canvasHolder {
     height: 85vh;
 }
+
+.jumbotron {
+    background-color: ##5bc0de;
+    color: black;
+}
+.nav-tabs {
+    margin-bottom: 0;
+}

@@ -99,6 +99,43 @@ void main(void) {
        <div class="row">
            <div class="col-md-6" id="canvasHolder">
                <canvas id="myGLCanvas"></canvas>
+
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="whole" value="whole" checked>
+                    Whole
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="upper" value="upper" checked>
+                    Upper
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="lower" value="lower" checked>
+                    Lower
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="torso" value="torso" checked>
+                    Torso
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="legs" value="legs" checked>
+                    Legs
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="head" value="head" checked>
+                    Head
+                  </label>
+                </div>
            </div>
 
            <div class="col-md-6">
@@ -152,7 +189,30 @@ void main(void) {
                            </table>
                        </div>
                    </div>
-                   <div class="tab-pane fade" id="B">Content inside tab B</div>
+                   <div class="tab-pane fade" id="B">
+                       <br>
+                       <div class="panel panel-info">
+                           <div class="panel-heading">
+                               <label>
+                                 <input type="checkbox" id="allOptions" value="All" checked>
+                                 All afflictions
+                               </label>
+                           </div>
+                       </div>
+                        <div class="checkbox" ng-repeat='(key, value) in info["Affected Regions"]'>
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <label>
+                                        <input type="checkbox" id="option" value="{{key}}" ng-click="change(key)">
+                                        {{key}}
+                                    </label>
+                                </div>
+                                <div class="panel-body">
+                                    {{value}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                    <div class="tab-pane fade" id="C">
                        <h3>Graphs of Medical History</h3>
                        <select>
@@ -229,7 +289,6 @@ void main(void) {
                </div>
            </div>
        </div>
-               <input type="checkbox" id="highlighted" value="Highlights">Turn on highlights<br>
    </div>
 
 </body></html>
